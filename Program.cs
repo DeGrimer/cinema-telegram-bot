@@ -40,7 +40,7 @@ namespace TelegramBot
             switch(message.Text)
             {
                 case "/start":
-                    var text = "Для вызова меню - /menu";
+                    var text = "Команда для вызова меню - /menu";
                     await Bot.SendTextMessageAsync(e.Message.From.Id, text);
                     break;
                 case "/menu":
