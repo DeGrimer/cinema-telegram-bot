@@ -22,12 +22,19 @@ namespace TelegramBot
 
         private static async void Bot_OnCallbackQuery(object sender, Telegram.Bot.Args.CallbackQueryEventArgs e)
         {
+            string[] genres = new string[] { "Боевик", "Комедия", "Фантастика", "Детектив" };
+            SearchFilm film = new SearchFilm(Bot,e);
             var button = e.CallbackQuery.Data;
-            if (button == "Отправь картинку")
-                await Bot.SendTextMessageAsync(e.CallbackQuery.From.Id, "https://goblins-online.ru/images/slide_new/tselnometallicheskaya-obolochka-1987-goblin-2.jpg");
-            if (button == "Отправь стикер")
-                await Bot.SendStickerAsync(e.CallbackQuery.From.Id, "https://tgram.ru/wiki/stickers/imagepng/EasterBear/EasterBear_11.png");
-        
+            if (button == "Поиск случайного фильма")
+            {
+                film.Search();
+            }
+
+            if(Array.IndexOf(genres,button) != -1)
+            {
+                film.RandFilm(button);
+            }
+
         }
 
         private static async void Bot_OnMessage(object sender, Telegram.Bot.Args.MessageEventArgs e)
@@ -53,9 +60,9 @@ namespace TelegramBot
                         },
                         new[]
                         {
-                            InlineKeyboardButton.WithCallbackData("Отправь картинку"),
-                            InlineKeyboardButton.WithCallbackData("Отправь стикер")
+                            InlineKeyboardButton.WithCallbackData("Поиск случайного фильма")
                         }
+
                     }) ;
                     await Bot.SendTextMessageAsync(message.From.Id, "Выбери пункт меню", replyMarkup: inlineKeyboard);
                     break;
