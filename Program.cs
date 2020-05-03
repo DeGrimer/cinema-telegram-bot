@@ -22,7 +22,7 @@ namespace TelegramBot
 
         private static async void Bot_OnCallbackQuery(object sender, Telegram.Bot.Args.CallbackQueryEventArgs e)
         {
-            string[] genres = new string[] { "Боевик", "Комедия", "Фантастика", "Детектив" };
+            string[] genres = new string[] { "action", "comedy", "fantastic", "detectiv" };
             SearchFilm film = new SearchFilm(Bot,e);
             var button = e.CallbackQuery.Data;
             if (button == "Поиск случайного фильма")

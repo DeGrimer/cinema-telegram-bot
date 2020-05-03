@@ -24,15 +24,15 @@ namespace TelegramBot
                         {
                         new[]
                         {
-                            InlineKeyboardButton.WithCallbackData("Боевик"),
-                            InlineKeyboardButton.WithCallbackData("Комедия")
+                            InlineKeyboardButton.WithCallbackData("Боевик","action"),
+                            InlineKeyboardButton.WithCallbackData("Комедия","comedy")
                         },
                         new[]
                         {
-                            InlineKeyboardButton.WithCallbackData("Детектив"),
-                            InlineKeyboardButton.WithCallbackData("Фантастика")
+                            InlineKeyboardButton.WithCallbackData("Детектив","detectiv"),
+                            InlineKeyboardButton.WithCallbackData("Фантастика","fantastic")
                         }
-                    });
+                     });
             await Bot.SendTextMessageAsync(e.CallbackQuery.From.Id, "Выбери жанр фильма", replyMarkup: inlineKeyboard);
         }
         public async void RandFilm(string name)
