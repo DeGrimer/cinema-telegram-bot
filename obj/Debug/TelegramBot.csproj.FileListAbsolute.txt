@@ -1,9 +1,0 @@
-D:\cinem-proj\obj\Debug\TelegramBot.csprojAssemblyReference.cache
-D:\cinem-proj\bin\Debug\TelegramBot.exe.config
-D:\cinem-proj\bin\Debug\TelegramBot.exe
-D:\cinem-proj\bin\Debug\TelegramBot.pdb
-D:\cinem-proj\bin\Debug\Newtonsoft.Json.xml
-D:\cinem-proj\bin\Debug\Telegram.Bot.xml
-D:\cinem-proj\obj\Debug\TelegramBot.csproj.CopyComplete
-D:\cinem-proj\obj\Debug\TelegramBot.exe
-D:\cinem-proj\obj\Debug\TelegramBot.pdb
