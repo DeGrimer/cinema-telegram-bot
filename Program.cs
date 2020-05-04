@@ -22,17 +22,26 @@ namespace TelegramBot
 
         private static async void Bot_OnCallbackQuery(object sender, Telegram.Bot.Args.CallbackQueryEventArgs e)
         {
-            string[] genres = new string[] { "action", "comedy", "fantastic", "detectiv" };
+            string[] genres = new string[] { "action", "comedy", "fantasy", "detectiv" };
+            string[] years = new string[] { "1950","2000"};
             SearchFilm film = new SearchFilm(Bot,e);
             var button = e.CallbackQuery.Data;
-            if (button == "Поиск случайного фильма")
+            if (button == "genresSearch")
             {
-                film.Search();
+                film.GenresSearch();
             }
 
             if(Array.IndexOf(genres,button) != -1)
             {
-                film.RandFilm(button);
+                film.RandFilmGenres(button);
+            }
+            if (Array.IndexOf(years, button) != -1)
+            {
+                film.RandFilmYears(button);
+            }
+            if (button == "yearsSearch")
+            {
+                film.YearsSearch();
             }
 
         }
@@ -60,7 +69,11 @@ namespace TelegramBot
                         },
                         new[]
                         {
-                            InlineKeyboardButton.WithCallbackData("Поиск случайного фильма")
+                            InlineKeyboardButton.WithCallbackData("Поиск случайного фильма по жанру","genresSearch")
+                        },
+                        new[]
+                        {
+                            InlineKeyboardButton.WithCallbackData("Поиск случайного фильма по году","yearsSearch")
                         }
 
                     }) ;
